@@ -14,12 +14,12 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"]
 }
 resource "aws_instance" "ubuntu" {
-  #count = 987
+  count = 5000
   #ami                         = var.win_ami
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type1
   subnet_id     = var.subnet
-  tags          = merge({ "Name" = format("k.kotov-test -> %s -> %s", substr("🤔🤷", 0, 1), data.aws_ami.ubuntu.name) }, var.tags)
+  tags          = merge({ "Name" = format("y.zhuk-test -> %s -> %s", substr("🤔🤷", 0, 1), data.aws_ami.ubuntu.name) }, var.tags)
   timeouts {
     create = "9m"
     delete = "15m"
